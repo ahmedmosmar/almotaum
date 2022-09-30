@@ -1,0 +1,730 @@
+/* ======= Start Globle Design ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--sub-color);
+}
+
+body {
+    font-family: Verdana !important;
+    /* font-family: cairo !important; */
+}
+
+:root {
+    --border-radius: 5px;
+    --main-color: #009688;
+    --sub-color: #59b3aaba;
+    --second_color: #ff9800;
+    --white_color: #fff;
+    --gray-color: #eeeeee;
+}
+
+/* ======= End Globle Design ======= */
+
+/* ======= Start Header Design ======= */
+header {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ------------ Start navbar ----------- */
+.content-header {
+    position: relative;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 22px 50px;
+    z-index: 999;
+    transition: 0.4s ease-in-out;
+    background-color: var(--main-color);
+}
+
+nav.sticky {
+    /* background-color: var(--sub-color); */
+}
+
+.content-header nav .nav-item {
+    background-color: #59b3aaba;
+    margin: 0 5px;
+    border-radius: 50px;
+    min-width: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .content-header nav .nav-item {
+        border-radius: 0;
+        background-color: transparent;
+        margin-top: 10px;
+    }
+}
+
+.content-header nav .nav-link {
+    color: var(--white_color);
+}
+
+header .toggle-menu {
+    display: none;
+}
+
+header .toggle-menu i {
+    font-size: 27px;
+    cursor: pointer;
+    color: var(--white_color);
+}
+
+header .content-header .nav.show {
+    transform: translate(0);
+}
+
+header .brand .b-one {
+    font-size: 22px;
+    border-radius: 5px;
+    letter-spacing: 5px;
+}
+
+header .brand .b-one,
+header .brand .b-tow {
+    color: var(--white_color);
+    font-family: Brush Script MT;
+}
+
+header .brand .b-tow {
+    display: none;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 25px;
+}
+
+header .brand .b-tow,
+header .brand span {
+    background-color: #ff9800;
+    box-shadow: 5px 5px 0 var(--white_color);
+}
+
+header .brand span {
+    padding: 5px 12px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+@media (max-width: 767px) {
+    header .content-header .nav {
+        display: flex;
+        flex-direction: column !important;
+        position: absolute;
+        top: 77px;
+        right: 0;
+        transform: translate(-1000px);
+        transition: 0.5s ease-out;
+        z-index: 999;
+        background-color: var(--main-color);
+        width: 100%;
+        min-height: 300px;
+    }
+
+    header .toggle-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav {
+        padding: 22px 20px !important;
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 767px) {
+    header .brand .b-tow {
+        display: none !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    header .brand .b-one {
+        display: none !important;
+    }
+    header .brand .b-tow {
+        display: block !important;
+    }
+}
+
+/* ------------ End navbar ----------- */
+
+/* ------------ Start header content ----------- */
+
+.person-detials {
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.person-detials .row {
+    justify-content: center;
+    flex-direction: column;
+}
+.person-detials .person-info {
+    z-index: 888;
+    background-color: #ffffffc7;
+    padding: 20px;
+}
+
+.person-detials .squer {
+    background-color: #ff9800;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    box-shadow: 5px 5px 5px var(--sub-color);
+}
+.person-detials .circle {
+    background-color: var(--main-color);
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    position: absolute;
+    box-shadow: 3px 3px 5px #0000008c;
+}
+
+.person-detials .my-name span,
+.person-detials .jop-title span {
+    color: var(--main-color);
+}
+.person-detials .my-name,
+.person-detials .description {
+    font-weight: 400;
+}
+
+.person-detials .jop-title {
+    font-size: 50px;
+    font-weight: 600;
+}
+.person-detials .jop-title span {
+    text-shadow: 3px 6px 0 #ff9800;
+}
+.person-detials .description {
+    word-spacing: 10px;
+    letter-spacing: 9px;
+}
+.person-detials .person-info button {
+    border-radius: 50px;
+    background: var(--main-color);
+    color: var(--white_color);
+    box-shadow: none;
+}
+@media (max-width: 576px) {
+    .person-detials .description {
+        word-spacing: 0px;
+        letter-spacing: 1px;
+    }
+}
+
+/* === Start Media Query For  Person info === */
+@media (max-width: 576px) {
+    .person-detials .jop-title {
+        font-size: 30px;
+    }
+    .person-detials .my-name {
+        font-size: 22px;
+    }
+    .person-info {
+        margin-bottom: 20px;
+    }
+    .person-detials .description {
+        word-spacing: 0px;
+        letter-spacing: 2px;
+    }
+}
+@media (min-width: 577px) and (max-width: 767px) {
+    .person-detials .jop-title {
+        font-size: 50px;
+    }
+    .person-detials .my-name {
+        font-size: 22px;
+    }
+    .person-info {
+        margin-bottom: 20px;
+    }
+    .person-detials .description {
+        word-spacing: 7px;
+        letter-spacing: 7px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .person-detials .jop-title {
+        font-size: 28px;
+    }
+    .person-detials .my-name {
+        font-size: 18px;
+    }
+    .person-detials .description {
+        word-spacing: 0px;
+        letter-spacing: 1px;
+    }
+}
+@media (max-width: 1200px) {
+    .person-detials {
+        margin-top: 100px;
+    }
+}
+/* === End Media Query For  Person info === */
+
+.person-detials .person-image {
+    width: 100%;
+    border-radius: 50%;
+    z-index: 888 !important;
+}
+
+.person-detials .person-image img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 0px var(--main-color);
+    border: 20px solid #ff9800;
+}
+
+/* === Start Media Query For  Person Image === */
+@media (max-width: 376px) {
+    .person-detials .person-image img {
+        width: 300px;
+        height: 300px;
+    }
+}
+@media (min-width: 378px) and (max-width: 576px) {
+    .person-detials .person-image img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+    .person-detials .person-image img {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .person-detials .person-image img {
+        /* width: 350px; */
+    }
+}
+/* === End Media Query For  Person Image === */
+
+/* ------------ End header content ----------- */
+
+/* ===== End Header Design ===== */
+
+/* === Start About Me Design ==== */
+.about-me {
+    background-color: var(--sub-color);
+}
+.about-me a.btn {
+    border: 2px solid var(--main-color);
+    box-shadow: none;
+    outline: none;
+    color: var(--white_color);
+}
+
+.about-me button.btn {
+    background-color: var(--main-color);
+    color: var(--white_color);
+    box-shadow: none;
+    outline: none;
+}
+.about-me button.btn:hover {
+    color: var(--white_color);
+}
+.about-me .details-about {
+    text-align: left;
+    color: var(--white_color);
+}
+
+.about-me .person-img img {
+    width: 300px;
+    border-radius: 5px;
+}
+
+@media (max-width: 376px) {
+    .about-me .person-img img {
+        width: 220px;
+    }
+}
+@media (max-width: 576px) {
+    .details-about {
+        text-align: center !important;
+    }
+    .about-me .details-about p {
+        font-size: 16px;
+    }
+}
+@media (min-width: 577px) and (max-width: 767px) {
+    .about-me .person-img img {
+        width: 400px;
+        height: 400px;
+        /* border-radius: 50%; */
+    }
+}
+
+/* === End About Me Design ==== */
+
+/* === Start Skills  Design ==== */
+.skills {
+    min-height: 70vh;
+    /* background-image: linear-gradient(to left, #faebd7, #fff, #faebd2); */
+    padding: 50px 0;
+    border-radius: 5px;
+    /* box-shadow: 7px 10px 10px #eaeaea; */
+}
+
+.skills .skill-one {
+    position: relative;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+.skills .skill-one h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+.skills .progress {
+    position: relative;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-left: 1px solid var(--sub-color);
+    background-color: var(--main-color);
+}
+
+.skills .skill-one img {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--white_color);
+    padding: 5px;
+    border-radius: 50px;
+    border: 5px solid var(--main-color);
+    /* box-shadow: 0px 5px 3px black; */
+}
+
+/* === End Skills  Design ==== */
+
+/* === Start Services  Design ==== */
+.services {
+    padding: 50px 0;
+    min-height: 80vh;
+    background-color: var(--sub-color);
+}
+
+.service {
+    height: 300px;
+    /* border: 5px solid #faebd7; */
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 15px var(--main-color); */
+    background-color: white;
+    text-align: center;
+}
+
+.service i {
+    font-size: 50px;
+    width: 90px;
+    height: 150px;
+    border: 2px solid var(--main-color);
+    border-radius: 50px;
+    color: var(--gray-color);
+    padding: 10px;
+    padding-top: 15px;
+    border-bottom: 50px solid var(--main-color);
+    transition: 0.2s ease-in;
+}
+
+.service:hover i {
+    border-bottom: 2px solid var(--main-color);
+    border-top: 50px solid var(--main-color);
+}
+
+.service:hover i.fa-apple,
+.service:hover i.fa-code,
+.service:hover i.fa-css3 {
+    color: var(--second_color);
+}
+/* .service:hover i.fa-apple {
+    color: #f44336;
+}
+
+.service:hover i.fa-code {
+    color: #29d91d;
+}
+.service:hover i.fa-css3 {
+    color: #03a9f4;
+} */
+
+.service .service-title {
+    font-weight: 500;
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.service .service-title::after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 8px;
+    background-color: var(--main-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.service .service-title::before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    background-color: var(--main-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+:root {
+    --grad2: var(--second_color);
+    --grad1: var(--main-color);
+    --grad3: var(--second_color);
+}
+
+.selector {
+    position: relative;
+    z-index: 99;
+}
+/*SKEWED EFFECT*/
+.selector::before,
+.selector::after {
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    -webkit-transform: skewX(2deg) skewY(4deg);
+    transform: skewX(2deg) skewY(4deg);
+    background: -webkit-linear-gradient(135deg, var(--grad2), var(--grad1), var(--grad3));
+    background: linear-gradient(315deg, var(--grad1), var(--grad2), var(--grad3));
+    z-index: -9;
+}
+/*BLUR EFFECT*/
+.selector::after {
+    /* -webkit-filter: blur(10px); */
+    /* filter: blur(10px); */
+}
+
+/*HOVER EFFECT*/
+.selector:hover::before,
+.selector:hover::after {
+    background: -webkit-linear-gradient(315deg, var(--grad1), var(--grad2), var(--grad3));
+    background: linear-gradient(135deg, var(--grad1), var(--grad2), var(--grad3));
+}
+
+/* === End Services  Design ==== */
+
+/* === Start Portfolio  Design ==== */
+
+.Projects .col-lg-6 .row {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.Projects .col-lg-6 {
+    margin-bottom: 50px !important;
+}
+.Projects .image-project {
+    /* background-color: red; */
+    width: 100%;
+    height: 350px;
+}
+
+.Projects .image-project img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+}
+
+.details-project {
+    padding: 10px;
+    min-height: 300px;
+    margin-left: -50px;
+    border-radius: var(--border-radius);
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.3s ease-out;
+}
+
+@media (max-width: 767px) {
+    .details-project {
+        margin-left: 0;
+        max-width: 70% !important;
+        margin-top: -50px;
+        min-height: 200px;
+    }
+}
+
+.details-project:hover {
+    transform: scale(102%);
+    box-shadow: 3px 3px 4px var(--second_color);
+}
+.details-project .title-project {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.details-project .des-project {
+    font-size: 14px;
+}
+
+.details-project .title-project,
+.details-project button.btn,
+.details-project .des-project {
+    color: var(--white_color);
+}
+
+.details-project button.btn {
+    background-color: var(--sub-color);
+    box-shadow: none;
+    outline: none;
+}
+
+/* === End Portfolio  Design ==== */
+
+/* === Start Contact Detalis  Design ==== */
+
+.contact {
+    min-height: 400px;
+    padding: 50px 0;
+    background-color: var(--sub-color);
+}
+
+.contact .col-md-4 {
+    padding: 0 20px;
+    margin: 20px 0;
+}
+
+.contact .item-contact {
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+.contact .item-contact span {
+    font-size: 15px;
+    color: var(--white_color);
+}
+
+.contact .item-contact i {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    top: -30px;
+    left: -30px;
+    background-color: var(--second_color);
+    font-size: 30px;
+    padding: 10px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    color: var(--white_color);
+}
+
+@media (max-width: 576px) {
+    .contact .item-contact i {
+        top: -15px;
+        left: -15px;
+    }
+}
+
+/* === End Contact Detalis  Design ==== */
+
+/* === Start Footer  Design ==== */
+
+.footer {
+    background-color: var(--main-color);
+}
+
+.footer h4 {
+    color: var(--white_color);
+}
+
+.footer .col-md-6 {
+    margin-bottom: 20px;
+}
+.footer iframe {
+    width: 100%;
+    height: 380px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--sub-color);
+}
+
+.footer form .form-group input,
+.footer form .form-group textarea {
+    background-color: var(--sub-color);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 50px;
+    padding: 0 15px;
+}
+.footer form .form-group textarea {
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.footer form .form-group input::placeholder,
+.footer form .form-group textarea::placeholder {
+    font-size: 14px;
+    color: var(--white_color);
+}
+
+.footer form button.btn {
+    background-color: var(--second_color);
+    outline: none;
+    border-radius: 50px;
+}
+
+.footer form label,
+.footer form button.btn,
+.footer .power {
+    color: var(--white_color);
+}
+
+/* === End Footer  Design ==== */
